@@ -167,7 +167,7 @@ defmodule Absinthe.GraphqlWS.Socket do
       defmodule MySocket do
         use Absinthe.GraphqlWS.Socket, schema: MySchema
 
-        def handle_init(%{"user_id" => user_id}) do
+        def handle_init(%{"user_id" => user_id}, socket) do
           case find_user(user_id) do
             nil ->
               {:error, %{}, socket}
